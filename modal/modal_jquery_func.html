@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./modal.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        $().ready(function(){
+            /* modal container 외부 배경 클릭 시 modal 닫힘 */
+            $("#modal").click((e) => {
+                if (e.target.id == "modal") {
+                    modal(0);
+                }
+            })
+        })
+
+        const modal = (function(action) {
+            if (action) {
+                /* modal 열기 */
+                $("body").css("overflow", "hidden");
+                $("#modal").css("display", "block");
+            } else {
+                /* modal 닫기 */
+                $("body").css("overflow", "auto");
+                $("#modal").css("display", "none");
+            }
+            return ;
+        });
+    </script>
+</head>
+<body>
+    <div id="modal" class="modal-wrapper">
+        <div class="modal-container">
+            <div class="modal-content">
+                <!-- modal 내부 X 버튼 클릭 시 modal 닫힘 -->
+                <span id="modalClose" onclick="modal(0)">&times;</span>
+                <p>Some text. Some text. Some text.</p>
+                <p>Some text. Some text. Some text.</p>
+            </div>
+        </div>
+    </div>
+    <!-- 버튼 클릭 시 modal 열림 -->
+    <button id="modalOpen" onclick="modal(1)">Open Modal</button>
+</body>
+</html>

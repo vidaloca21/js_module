@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./toast.css">
+    <script type="text/javascript">
+        let removeToast;
+
+        function toast(string) {
+            const toast = document.getElementById("toast");
+
+            toast.classList.contains("reveal") ?
+                (clearTimeout(removeToast), removeToast = setTimeout(function () {
+                    document.getElementById("toast").classList.remove("reveal")
+                }, 3000)) :
+                removeToast = setTimeout(function () {
+                    document.getElementById("toast").classList.remove("reveal")
+                }, 3000)
+            toast.classList.add("reveal"),
+                toast.innerText = string
+        }
+    </script>
+</head>
+<body>
+    <div id="toast"></div>
+    <button onclick="toast('갓 구운 따끈따끈한 토스트입니다')">토스트 버튼</button>
+</body>
+</html>

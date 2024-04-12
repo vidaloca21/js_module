@@ -1,0 +1,53 @@
+ul, li {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+.list-wrapper {
+    /* 리스트 외부 wrapper 영역 style */
+    border: 1px solid #CACACA;
+    margin: 0 auto;
+    width: 600px;
+    height: 40px;
+    /* 버튼 위치 지정 위해 속성 부여 */
+    position: relative;
+}
+.list-content {
+    /* 리스트 스타일 */
+    height: inherit;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 0 12px;
+
+    /*  */
+    overflow: scroll;
+    /* 스크롤바 숨김 */
+    -ms-overflow-style: none; /* 인터넷 익스플로러 */
+    scrollbar-width: none; /* 파이어폭스 */
+}
+/* 스크롤바 숨김 */
+.list-content::-webkit-scrollbar {
+    display: none; /* 크롬, 사파리, 오페라, 엣지 */
+}
+.btn {
+    /* 버튼 위치 > 외부 container의 relative 속성 이용 */
+    position: absolute;
+    top: 10px;
+    text-align: center;
+    /* 버튼 스타일 */
+    background-color: #FFF;
+    color: #333;
+    font-weight: bold;
+    border: 1px solid #333;
+    border-radius: 15px;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+.btn-left {
+    left: 6px;
+}
+.btn-right {
+    right: 6px;
+}

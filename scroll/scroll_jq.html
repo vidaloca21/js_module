@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./scroll.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        $().ready(function() {
+            /* 초기값 설정 */
+            const areaWidth = $("#listContent")[0].scrollWidth - $("#listContent")[0].clientWidth;
+            $("#btnLeft").css("visibility", "hidden");
+            /* 스크롤 발생 시 버튼 숨김 */
+            $("#listContent").scroll((e) => {
+                if (e.target.scrollLeft === 0) {
+                    $("#btnLeft").css("visibility", "hidden")
+                } else if (e.target.scrollLeft === areaWidth) {
+                    $("#btnRight").css("visibility", "hidden")
+                } else {
+                    $("#btnLeft").css("visibility", "visible")
+                    $("#btnRight").css("visibility", "visible")
+                }
+            })
+            /* 버튼 클릭 시 스크롤 수행 */
+            $("#btnLeft").click(() => {
+                $("#listContent").animate({scrollLeft:0}, 300);
+            })
+            $("#btnRight").click(() => {
+                $("#listContent").animate({scrollLeft:areaWidth}, 300);
+            })
+        })
+        const listScroll = (function() {
+        })
+    </script>
+</head>
+<body>
+    <div class="list-wrapper">
+        <ul id="listContent" class="list-content">
+            <li>LIST_ITEM_1</li>
+            <li>LIST_ITEM_2</li>
+            <li>LIST_ITEM_3</li>
+            <li>LIST_ITEM_4</li>
+            <li>LIST_ITEM_5</li>
+            <li>LIST_ITEM_6</li>
+            <li>LIST_ITEM_7</li>
+            <li>LIST_ITEM_8</li>
+            <li>LIST_ITEM_9</li>
+        </ul>
+        <button id="btnLeft" class="btn btn-left">&lt;</button>
+        <button id="btnRight" class="btn btn-right">&gt;</button>
+    </div>
+</body>
+</html>

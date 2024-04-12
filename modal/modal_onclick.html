@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./modal.css">
+    <script type="text/javascript">
+        const modal = (function(action) {
+            const body = document.body;
+            const modal = document.getElementById("modal");
+            if (action) {
+                /* modal 열기 */
+                body.style.overflow = "hidden";
+                modal.style.display = "block";
+            } else {
+                /* modal 닫기 */
+                body.style.overflow = "auto";
+                modal.style.display = "none";
+            } 
+            return ;
+        });
+    </script>
+</head>
+<body>
+
+<div id="modal" class="modal-wrapper">
+    <div class="modal-container">
+        <div class="modal-content">
+            <span id="modalClose" onclick="modal(0)">&times;</span>
+            <p>Some text. Some text. Some text.</p>
+            <p>Some text. Some text. Some text.</p>
+        </div>
+    </div>
+</div>
+<button id="modalOpen" onclick="modal(1)">Open Modal</button>
+
+
+</body>
+</html>

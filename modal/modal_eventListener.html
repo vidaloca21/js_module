@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./modal.css">
+    <script type="text/javascript">
+        document.addEventListener("DOMContentLoaded", function() {
+            const body = document.body;
+            const modal = document.getElementById("modal");
+            
+            /* 버튼 클릭 시 modal 열림 */
+            document.getElementById("modalOpen").addEventListener("click", () => {
+                body.style.overflow = "hidden";
+                modal.style.display = "block";
+            })
+
+            /* modal 내부 X 버튼 클릭 시 modal 닫힘 */
+            document.getElementById("modalClose").addEventListener("click", () => {
+                body.style.overflow = "auto";
+                modal.style.display = "none";
+            })
+
+            /* modal container 외부 배경 클릭 시 modal 닫힘 */
+            modal.addEventListener("click", (e) => {
+                if (e.target == modal) {
+                    body.style.overflow = "auto";
+                    modal.style.display = "none";
+                }
+            })
+        })
+    </script>
+</head>
+<body>
+
+    <div id="modal" class="modal-wrapper">
+        <div class="modal-container">
+            <div class="modal-content">
+                <span id="modalClose">&times;</span>
+                <p>Some text. Some text. Some text.</p>
+                <p>Some text. Some text. Some text.</p>
+            </div>
+        </div>
+    </div>
+    <button id="modalOpen">Open Modal</button>
+
+</body>
+</html>

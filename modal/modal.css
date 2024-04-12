@@ -1,0 +1,39 @@
+/* modal 배경 설정 */
+.modal-wrapper{
+    /* 초기 상태 설정 */
+    display: none;
+    /* 배경색 설정 */
+    background-color: #6A6A6AAA;
+    /* 화면 전체 가리도록 */
+    position:fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    /* 화면 클릭 및 스크롤 방지 */
+    z-index: 3;
+    overflow: hidden;
+}
+/* modal container 설정 */
+.modal-container {
+    /* 배경색, 크기 설정 */
+    background-color:#fff;
+    width:600px;
+    height: 400px;
+    /* 위치 정중앙 설정 */
+    position:relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+/* modal 내부 content 설정 */
+.modal-content {
+    /* 닫기 버튼 설정 */
+    > span:first-child {
+        right: 10px;
+        cursor: pointer;
+        font-size: 30px;
+        font-weight: bold;
+        color: #FFAADD;
+    }
+}
