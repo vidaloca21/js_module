@@ -8,6 +8,14 @@
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script type="text/javascript">
         $().ready(function(){
+            /* 버튼 클릭 시 modal 열림 */
+            $("#modalOpen").click(() => {
+                modal(1);
+            })
+            /* modal 내부 X 버튼 클릭 시 modal 닫힘 */
+            $("#modalClose").click(() => {
+                modal(0);
+            })
             /* modal container 외부 배경 클릭 시 modal 닫힘 */
             $("#modal").click((e) => {
                 if (e.target.id == "modal") {
@@ -35,13 +43,13 @@
         <div class="modal-container">
             <div class="modal-content">
                 <!-- modal 내부 X 버튼 클릭 시 modal 닫힘 -->
-                <span id="modalClose" onclick="modal(0)">&times;</span>
+                <span id="modalClose">&times;</span>
                 <p>Some text. Some text. Some text.</p>
                 <p>Some text. Some text. Some text.</p>
             </div>
         </div>
     </div>
     <!-- 버튼 클릭 시 modal 열림 -->
-    <button id="modalOpen" onclick="modal(1)">Open Modal</button>
+    <button id="modalOpen">Open Modal</button>
 </body>
 </html>

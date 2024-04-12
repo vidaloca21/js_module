@@ -6,6 +6,22 @@
     <title>Document</title>
     <link rel="stylesheet" href="./modal.css">
     <script type="text/javascript">
+        document.addEventListener("DOMContentLoaded", function() {
+            /* 버튼 클릭 시 modal 열림 */
+            document.getElementById("modalOpen").addEventListener("click", () => {
+                modal(1);
+            })
+            /* modal 내부 X 버튼 클릭 시 modal 닫힘 */
+            document.getElementById("modalClose").addEventListener("click", () => {
+                modal(0);
+            })
+            /* modal container 외부 배경 클릭 시 modal 닫힘 */
+            document.getElementById("modal").addEventListener("click", (e) => {
+                if (e.target.id === "modal") {
+                    modal(0);
+                }
+            })
+        })
         const modal = (function(action) {
             const body = document.body;
             const modal = document.getElementById("modal");
@@ -27,14 +43,12 @@
 <div id="modal" class="modal-wrapper">
     <div class="modal-container">
         <div class="modal-content">
-            <span id="modalClose" onclick="modal(0)">&times;</span>
+            <span id="modalClose">&times;</span>
             <p>Some text. Some text. Some text.</p>
             <p>Some text. Some text. Some text.</p>
         </div>
     </div>
 </div>
-<button id="modalOpen" onclick="modal(1)">Open Modal</button>
-
-
+<button id="modalOpen">Open Modal</button>
 </body>
 </html>
