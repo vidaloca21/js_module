@@ -5,39 +5,60 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- <script src="./trie.js"></script> -->
+    <script src="./trie.js"></script>
     <script src="./invertedIndex.js"></script>
     <title>자동완성</title>
     <style>
-      #keywordList {
+      #keywordListTrie {
         max-height: 240px;
         overflow-y: auto;
       }
-      #keywordList > li:hover {
+      #keywordListTrie > li:hover {
         background-color: #e1e3e5;
         cursor: pointer;
       }
+      #content-wrapper {
+        display: flex;
+      }
     </style>
   </head>
-  <body>
-    <div class="container mx-auto my-4 p-4 bg-slate-100 h-screen">
-      <h3 class="my-4 text-base font-semibold">검색창 자동완성 구현하기</h3>
+  <body class="container bg-slate-100 h-screen">
+    <h3 class="text-base font-semibold">검색창 자동완성 구현하기</h3>
+    <div id="content-wrapper" class="mx-auto p-4">
       <div class="">
-        <input
-          type="text"
-          id="searchText"
-          autocomplete="off"
-          class="p-1 w-80"
-        />
-        <button
-          id="searchBtn"
-          class="bg-blue-800 px-2 py-1 rounded-sm text-slate-100"
-        >
-          검색
-        </button>
+        <div>
+          <h3 class="my-2 text-base font-semibold">Trie</h3>
+        </div>
+        <div class="">
+          <input
+            type="text"
+            id="searchTextTrie"
+            autocomplete="off"
+            class="p-1 w-80"
+          />
+        </div>
+        <div class="my-1">
+          <ul
+            id="keywordListTrie"
+            class="text-blue-600 bg-white w-80 px-1"
+          ></ul>
+        </div>
       </div>
-      <div class="my-1">
-        <ul id="keywordList" class="text-blue-600 bg-white w-80 px-1"></ul>
+      <div class="mx-4">
+        <div>
+          <h3 class="my-2 text-base font-semibold">Inverted Index</h3>
+        </div>
+        <div class="">
+          <input
+            type="text"
+            id="searchText"
+            autocomplete="off"
+            class="p-1 w-80"
+          />
+        </div>
+        <div class="my-1">
+          <ul id="keywordList" class="text-blue-600 bg-white w-80 px-1"></ul>
+        </div>
       </div>
     </div>
   </body>

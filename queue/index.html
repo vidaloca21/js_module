@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h3>queue</h3>
+    <div>
+      <input type="number" id="qVal" />
+      <button id="insertBtn">enqueue</button>
+      <button id="deleteBtn">dequeue</button>
+    </div>
+  </body>
+  <script>
+    class Queue {
+      constructor() {
+        this._arr = [];
+      }
+      enqueue(item) {
+        this._arr.push(item);
+      }
+      dequeue() {
+        return this._arr.shift();
+      }
+    }
+
+    const queue = new Queue();
+
+    document.querySelector("#insertBtn").addEventListener("click", function () {
+      queue.enqueue(+document.querySelector("#qVal").value);
+      document.querySelector("#qVal").value = "";
+      console.log(queue._arr);
+    });
+    document.querySelector("#deleteBtn").addEventListener("click", function () {
+      queue.dequeue();
+      console.log(queue._arr);
+    });
+  </script>
+</html>
