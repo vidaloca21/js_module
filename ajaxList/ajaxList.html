@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./ajaxList.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        $().ready(function() {
+            let page = 1;
+            getMovies(page++);
+            /* 컨텐츠 무한스크롤 */
+            $(window).scroll(() => {
+                if ($(window).scrollTop() === $(document).height() - $(window).height()) {
+                    getMovies(page++)
+                }
+            })
+
+            /* 상단 이동 */
+            $("#moveTop").click(() => {
+                window.scrollTo({top: 0, behavior: 'smooth'});
+            })
+
+
+            // 이건 그냥 test 실습
+            $.get("https://jsonplaceholder.typicode.com/todos")
+            .then((response) => {
+                let title = response.find(todo => todo.userId === 1 && todo.id === 14)
+                console.log(title)
+            })
+
+        })
+
+        const sendAjax = () => {
+            const API_KEY = "ab3cbb4ae3480c193d60f8fc5c8ed5a5";
+            return (page) => {
+                $.get("https://api.themoviedb.org/3/movie/popular", {
+                    api_key: API_KEY,
+                    language: "ko-KR",
+                    page: page,
+                }).then((response) => {
+                    response.results.forEach((movie) => {
+                        $("#content").append(createCard(movie))
+                    })
+                })
+            }
+        }
+
+        const createCard = (elm) => {
+            let card = $(`<div id="${elm.id}"></div>`).attr("class", "card");
+            let titleDom = $(`<p>${elm.title}</p>`).attr("class", "title")
+            let overviewDom = $(`<p>${elm.overview}</p>`).attr("class", "overview")
+            let dateDom = $(`<span>${elm.release_date}</span>`).attr("class", "date")
+            let ratingDom = $(`<span>${elm.vote_average}</span>`).attr("class", "rating")
+
+            card.append(titleDom)
+            card.append(overviewDom)
+            card.append(dateDom)
+            card.append(ratingDom)
+
+            /* 버튼 클릭 시 modal 열림 */
+            $(".card").click((e) => {
+                // 이벤트 전파 중지 + 형제 이벤트 실행 중지
+                e.stopImmediatePropagation()
+                modal(1, $(e.target).closest(".card").attr("id"));
+            })
+
+            return card;
+        }
+
+        const getMovies = sendAjax();
+    
+    </script>
+</head>
+<body>
+    <div id="header">Hello Movie</div>
+    <div id="content"></div>
+    <div id="moveTop">TOP</div>
+</body>
+</html>

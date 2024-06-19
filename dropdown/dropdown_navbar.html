@@ -1,40 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./dropdown_navbar.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
+    <link rel="stylesheet" href="./dropdown_navbar.css" />
+  </head>
+  <body>
     <div id="header">
-        <div id="header-wrapper">
-            <div id="main">
-                <a href="javascript:void(0);">logo</a>
-                <a href="javascript:void(0);">login</a>
-            </div>
-            <div id="navbar">
-                <ul class="nav-menu-wrapper">
-                    <li class="nav-menu-item"><a href="javascript:void(0);">menu</a></li>
-                    <li class="nav-menu-item"><a href="javascript:void(0);">menu</a></li>
-                    <li class="nav-menu-item"><a href="javascript:void(0);">menu</a></li>
-                    <li class="nav-menu-item"><a href="javascript:void(0);">menu</a></li>
-                    <li class="nav-menu-item"><a href="javascript:void(0);">menu</a></li>
-                    <li class="nav-menu-item"><a href="javascript:void(0);">menu</a></li>
-                    <li class="nav-menu-item"><a href="javascript:void(0);">menu</a></li>
-                    <li class="nav-menu-item"><a href="javascript:void(0);">menu</a></li>
-                </ul>
-                <div class="dropdown-content">
-                    <a href="#">Link 1</a>
-                    <a href="#">Link 2</a>
-                    <a href="#">Link 3</a>
-                </div>
-            </div>
+      <div id="header-wrapper">
+        <div id="main">
+          <a href="javascript:void(0);">logo</a>
+          <a href="javascript:void(0);">login</a>
         </div>
+        <div id="navbar">
+          <div class="dropdown">
+            <button class="dropbtn">Dropdown</button>
+            <div class="dropdown-content">
+              <a href="javascript:void(0);">Link 1</a>
+              <a href="javascript:void(0);">Link 2</a>
+              <a href="javascript:void(0);">Link 3</a>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div id="container">
-        <div id="content"></div>
-    </div>
+    <div id="container"></div>
     <div id="footer">Footer</div>
-</body>
+  </body>
 </html>

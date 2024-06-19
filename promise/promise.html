@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+      const delay = (ms) => {
+        return new Promise((res) => setTimeout(res, ms));
+      };
+      const getApple = async () => {
+        await delay(1000);
+        return "Apple";
+      };
+      const getBanana = async () => {
+        await delay(2000);
+        return "Banana";
+      };
+
+      const pickFruit = async () => {
+        const apple = await getApple();
+        const banana = await getBanana();
+        return `${apple}, ${banana}`;
+      };
+
+      const pickAllFruits = () => {
+        return Promise.all([getApple(), getBanana()]).then((f) =>
+          f.join(" + ")
+        );
+      };
+
+      const pickFirstFruit = () => {
+        return Promise.race([getApple(), getBanana()]);
+      };
+
+      const getUsers()
+
+      document.addEventListener("DOMContentLoaded", function () {
+        pickFruit().then(console.log);
+        pickAllFruits().then(console.log);
+        pickFirstFruit().then(console.log);
+      });
+    </script>
+  </head>
+  <body></body>
+</html>
