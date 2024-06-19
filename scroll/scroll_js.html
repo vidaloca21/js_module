@@ -20,8 +20,14 @@
             /* EventListner 등록 */
             /* scroll 위치에 따라 버튼 숨김 */
             scrollArea.addEventListener("scroll", function(e) {
-                btnLeft.style.visibility = (e.target.scrollLeft === 0) ? "hidden" : null;
-                btnRight.style.visibility = (e.target.scrollLeft === areaWidth) ? "hidden" : null;
+                if (e.target.scrollLeft === 0) {
+                    btnLeft.style.visibility =  "hidden";
+                } else if (e.target.scrollLeft === areaWidth) {
+                    btnRight.style.visibility = "hidden";
+                } else {
+                    btnLeft.style.visibility =  null;
+                    btnRight.style.visibility = null;
+                }
             })
             /* 버튼 클릭 시 스크롤 수행 */
             btnLeft.addEventListener("click", function() {

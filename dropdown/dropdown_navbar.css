@@ -1,0 +1,102 @@
+/*
+violet: #E8DFF5
+pink: #FCE1E4
+yellow: #FCF4DD
+lightgreen: #DDEDEA
+skyblue: #DAEAF6
+*/
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #F1F3F5;
+}
+ul, li {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+a, a:visited {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    color: inherit;
+}
+
+#header {
+    display: flex;
+    background-color: #DAEAF6;
+}
+#header-wrapper {
+    width: 980px;
+    margin: 0 auto;
+}
+#nav-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 4px;
+}
+#content {
+    background-color: #FFF;
+    width: 980px;
+    min-height: 120vh;
+    margin: 0 auto;
+}
+#footer {
+    display: block;
+    height: 40px;
+    background-color: #333;
+    color: #FAFAFA;
+}
+
+
+/* The dropdown container */
+.dropdown {
+    float: left;
+    overflow: hidden;
+  }
+  
+  /* Dropdown button */
+  .dropdown .dropbtn {
+    font-size: 16px;
+    border: none;
+    outline: none;
+    padding: 14px 16px;
+    background-color: inherit;
+    font-family: inherit; /* Important for vertical align on mobile phones */
+    margin: 0; /* Important for vertical align on mobile phones */
+  }
+  
+  /* Add a red background color to navbar links on hover */
+  .navbar a:hover, .dropdown:hover .dropbtn {
+    background-color: #FCE1E4;
+  }
+  
+  /* Dropdown content (hidden by default) */
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  /* Links inside the dropdown */
+  .dropdown-content a {
+    float: none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+  }
+  
+  /* Add a grey background color to dropdown links on hover */
+  .dropdown-content a:hover {
+    background-color: #EAEAEA;
+  }
+  
+  /* Show the dropdown menu on hover */
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }

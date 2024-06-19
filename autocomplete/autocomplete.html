@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- <script src="./trie.js"></script> -->
+    <script src="./invertedIndex.js"></script>
+    <title>자동완성</title>
+    <style>
+      #keywordList {
+        max-height: 240px;
+        overflow-y: auto;
+      }
+      #keywordList > li:hover {
+        background-color: #e1e3e5;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container mx-auto my-4 p-4 bg-slate-100 h-screen">
+      <h3 class="my-4 text-base font-semibold">검색창 자동완성 구현하기</h3>
+      <div class="">
+        <input
+          type="text"
+          id="searchText"
+          autocomplete="off"
+          class="p-1 w-80"
+        />
+        <button
+          id="searchBtn"
+          class="bg-blue-800 px-2 py-1 rounded-sm text-slate-100"
+        >
+          검색
+        </button>
+      </div>
+      <div class="my-1">
+        <ul id="keywordList" class="text-blue-600 bg-white w-80 px-1"></ul>
+      </div>
+    </div>
+  </body>
+</html>
