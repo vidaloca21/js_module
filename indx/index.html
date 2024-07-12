@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+    ></script>
+    <script src="./sssocket.js"></script>
+  </head>
+  <body>
+    <button id="open">open</button>
+    <button id="close">close</button>
+    <div id="content">
+      <table class="hoka-table hoka-table-5">
+        <caption>
+          선택하신 종목의 5단호가 정보
+        </caption>
+        <colgroup>
+          <col width="17%" />
+          <col width="17%" />
+          <col width="20%" />
+          <col width="12%" />
+          <col width="17%" />
+          <col width="17%" />
+        </colgroup>
+        <thead>
+          <tr class="tac">
+            <th scope="col">대비</th>
+            <th scope="col">매도잔량</th>
+            <th scope="col">호가</th>
+            <th scope="col">등락률</th>
+            <th scope="col">매수잔량</th>
+            <th scope="col">대비</th>
+          </tr>
+        </thead>
+        <tbody class="5-hoka-tbody" id="_0_F5000stock5-hoka-tbl-tbody">
+          <tr>
+            <td
+              class="ask5"
+              data-bind="DB_showZeroToSpace(a.medocount5)^DB_showZeroToSpace(r.hoka_medodebi_5)"
+            ></td>
+            <td
+              class="ask5"
+              data-bind="DB_showZeroToSpace(a.medovol5)^DB_showZeroToSpace(r.hoka_medovol_5)"
+            ></td>
+            <td
+              class="j-selectable j-hoka-td ask5 set-price-element"
+              data-bind="DB_getHokaBox(a.medohoka5, a.medohoka_f5,1)^DB_getHokaBox(r.hoka_medohoka_5,r.hoka_medohoka_5_f,0)"
+            ></td>
+            <td
+              class="ask5"
+              data-bind="DB_getColBuho(a.medohoka_rate5)^DB_getHokaRate($a.standardjuka$,r.hoka_medohoka_5)"
+            ></td>
+            <td colspan="2" rowspan="5"></td>
+          </tr>
+          <tr>
+            <td
+              class="ask4"
+              data-bind="DB_showZeroToSpace(a.medocount4)^DB_showZeroToSpace(r.hoka_medodebi_4)"
+            ></td>
+            <td
+              class="ask4"
+              data-bind="DB_showZeroToSpace(a.medovol4)^DB_showZeroToSpace(r.hoka_medovol_4)"
+            ></td>
+            <td
+              class="j-selectable j-hoka-td ask4 set-price-element"
+              data-bind="DB_getHokaBox(a.medohoka4, a.medohoka_f4,2)^DB_getHokaBox(r.hoka_medohoka_4,r.hoka_medohoka_4_f,0)"
+            ></td>
+            <td
+              class="ask4"
+              data-bind="DB_getColBuho(a.medohoka_rate4)^DB_getHokaRate($a.standardjuka$,r.hoka_medohoka_4)"
+            ></td>
+          </tr>
+          <tr>
+            <td
+              class="ask3"
+              data-bind="DB_showZeroToSpace(a.medocount3)^DB_showZeroToSpace(r.hoka_medodebi_3)"
+            ></td>
+            <td
+              class="ask3"
+              data-bind="DB_showZeroToSpace(a.medovol3)^DB_showZeroToSpace(r.hoka_medovol_3)"
+            ></td>
+            <td
+              class="j-selectable j-hoka-td ask3 set-price-element"
+              data-bind="DB_getHokaBox(a.medohoka3, a.medohoka_f3,3)^DB_getHokaBox(r.hoka_medohoka_3,r.hoka_medohoka_3_f,0)"
+            ></td>
+            <td
+              class="ask3"
+              data-bind="DB_getColBuho(a.medohoka_rate3)^DB_getHokaRate($a.standardjuka$,r.hoka_medohoka_3)"
+            ></td>
+          </tr>
+          <tr>
+            <td
+              class="ask2"
+              data-bind="DB_showZeroToSpace(a.medocount2)^DB_showZeroToSpace(r.hoka_medodebi_2)"
+            ></td>
+            <td
+              class="ask2"
+              data-bind="DB_showZeroToSpace(a.medovol2)^DB_showZeroToSpace(r.hoka_medovol_2)"
+            ></td>
+            <td
+              class="j-selectable j-hoka-td ask2 set-price-element"
+              data-bind="DB_getHokaBox(a.medohoka2, a.medohoka_f2,4)^DB_getHokaBox(r.hoka_medohoka_2,r.hoka_medohoka_2_f,0)"
+            ></td>
+            <td
+              class="ask2"
+              data-bind="DB_getColBuho(a.medohoka_rate2)^DB_getHokaRate($a.standardjuka$,r.hoka_medohoka_2)"
+            ></td>
+          </tr>
+          <tr>
+            <td
+              class="ask1"
+              data-bind="DB_showZeroToSpace(a.medocount1)^DB_showZeroToSpace(r.hoka_medodebi_1)"
+            ></td>
+            <td
+              class="ask1"
+              data-bind="DB_showZeroToSpace(a.medovol1)^DB_showZeroToSpace(r.hoka_medovol_1)"
+            ></td>
+            <td
+              class="j-selectable j-hoka-td ask1 fw_b set-price-element"
+              data-bind="DB_getHokaBox(a.medohoka1, a.medohoka_f1,5)^DB_getHokaBox(r.hoka_medohoka_1,r.hoka_medohoka_1_f,0)"
+            ></td>
+            <td
+              class="ask1"
+              data-bind="DB_getColBuho(a.medohoka_rate1)^DB_getHokaRate($a.standardjuka$,r.hoka_medohoka_1)"
+            ></td>
+          </tr>
+          <tr>
+            <td colspan="2" rowspan="5"></td>
+            <td
+              class="j-selectable j-hoka-td bid1 fw_b set-price-element"
+              data-bind="DB_getHokaBox(a.mesuhoka1, a.mesuhoka_f1,6)^DB_getHokaBox(r.hoka_mesuhoka_1,r.hoka_mesuhoka_1_f,0)"
+            ></td>
+            <td
+              class="bid1"
+              data-bind="DB_getColBuho(a.mesuhoka_rate1)^DB_getHokaRate($a.standardjuka$,r.hoka_mesuhoka_1)"
+            ></td>
+            <td
+              class="bid1"
+              data-bind="DB_showZeroToSpace(a.mesuvol1)^DB_showZeroToSpace(r.hoka_mesuvol_1)"
+            ></td>
+            <td
+              class="bid1"
+              data-bind="DB_showZeroToSpace(a.mesucount1)^DB_showZeroToSpace(r.hoka_mesudebi_1)"
+            ></td>
+          </tr>
+          <tr>
+            <td
+              class="j-selectable j-hoka-td bid2 set-price-element"
+              data-bind="DB_getHokaBox(a.mesuhoka2, a.mesuhoka_f2,7)^DB_getHokaBox(r.hoka_mesuhoka_2,r.hoka_mesuhoka_2_f,0)"
+            ></td>
+            <td
+              class="bid2"
+              data-bind="DB_getColBuho(a.mesuhoka_rate2)^DB_getHokaRate($a.standardjuka$,r.hoka_mesuhoka_2)"
+            ></td>
+            <td
+              class="bid2"
+              data-bind="DB_showZeroToSpace(a.mesuvol2)^DB_showZeroToSpace(r.hoka_mesuvol_2)"
+            ></td>
+            <td
+              class="bid2"
+              data-bind="DB_showZeroToSpace(a.mesucount2)^DB_showZeroToSpace(r.hoka_mesudebi_2)"
+            ></td>
+          </tr>
+          <tr>
+            <td
+              class="j-selectable j-hoka-td bid3 set-price-element"
+              data-bind="DB_getHokaBox(a.mesuhoka3, a.mesuhoka_f3,8)^DB_getHokaBox(r.hoka_mesuhoka_3,r.hoka_mesuhoka_3_f,0)"
+            ></td>
+            <td
+              class="bid3"
+              data-bind="DB_getColBuho(a.mesuhoka_rate3)^DB_getHokaRate($a.standardjuka$,r.hoka_mesuhoka_3)"
+            ></td>
+            <td
+              class="bid3"
+              data-bind="DB_showZeroToSpace(a.mesuvol3)^DB_showZeroToSpace(r.hoka_mesuvol_3)"
+            ></td>
+            <td
+              class="bid3"
+              data-bind="DB_showZeroToSpace(a.mesucount3)^DB_showZeroToSpace(r.hoka_mesudebi_3)"
+            ></td>
+          </tr>
+          <tr>
+            <td
+              class="j-selectable j-hoka-td bid4 set-price-element"
+              data-bind="DB_getHokaBox(a.mesuhoka4, a.mesuhoka_f4,9)^DB_getHokaBox(r.hoka_mesuhoka_4,r.hoka_mesuhoka_4_f,0)"
+            ></td>
+            <td
+              class="bid4"
+              data-bind="DB_getColBuho(a.mesuhoka_rate4)^DB_getHokaRate($a.standardjuka$,r.hoka_mesuhoka_4)"
+            ></td>
+            <td
+              class="bid4"
+              data-bind="DB_showZeroToSpace(a.mesuvol4)^DB_showZeroToSpace(r.hoka_mesuvol_4)"
+            ></td>
+            <td
+              class="bid4"
+              data-bind="DB_showZeroToSpace(a.mesucount4)^DB_showZeroToSpace(r.hoka_mesudebi_4)"
+            ></td>
+          </tr>
+          <tr>
+            <td
+              class="j-selectable j-hoka-td bid5 set-price-element"
+              data-bind="DB_getHokaBox(a.mesuhoka5, a.mesuhoka_f5,10)^DB_getHokaBox(r.hoka_mesuhoka_5,r.hoka_mesuhoka_5_f,0)"
+            ></td>
+            <td
+              class="bid5"
+              data-bind="DB_getColBuho(a.mesuhoka_rate5)^DB_getHokaRate($a.standardjuka$,r.hoka_mesuhoka_5)"
+            ></td>
+            <td
+              class="bid5"
+              data-bind="DB_showZeroToSpace(a.mesuvol5)^DB_showZeroToSpace(r.hoka_mesuvol_5)"
+            ></td>
+            <td
+              class="bid5"
+              data-bind="DB_showZeroToSpace(a.mesucount5)^DB_showZeroToSpace(r.hoka_mesudebi_5)"
+            ></td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td
+              class="ask-total"
+              data-bind="a.medodebitot^DB_getColBuho(r.medodebitot)"
+            ></td>
+            <td class="ask-total" data-bind="a.medotot^r.medotot"></td>
+            <td
+              class="bg-total"
+              data-bind="DB_getColBuho(a.diffmesumedo)^DB_getColBuho(r.diffmesumedo)"
+              colspan="2"
+            >
+              잔량합계
+            </td>
+            <td class="bid-total" data-bind="a.mesutot^r.mesutot"></td>
+            <td
+              class="bid-total"
+              data-bind="a.mesudebitot^DB_getColBuho(r.mesudebitot)"
+            ></td>
+          </tr>
+          <tr>
+            <td class="ask-total j-expect-amt">가격</td>
+            <td
+              class="ask-total j-expect"
+              data-bind="a.expectjuka^r.expectjuka"
+            ></td>
+            <td
+              class="ask-total j-sigan"
+              data-bind="a.medototto^r.medototto"
+              style="display: none"
+            ></td>
+            <td class="bg-total" colspan="2">
+              <span>예상체결</span>
+              <a
+                href="#"
+                id="_0_F5000frm_stock_jumun_hoga5Form_footerBtn"
+                class="sijuka-fl"
+                onclick="javascript:void(0)"
+                data-state="expect"
+              ></a>
+            </td>
+            <td
+              class="bid-total j-sigan"
+              data-bind="a.mesutotto^r.mesutotto"
+              style="display: none"
+            ></td>
+            <td
+              class="bid-total j-expect"
+              data-bind="a.expectvol^r.expectvol"
+            ></td>
+            <td class="bid-total j-expect-vol">수량</td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+  </body>
+</html>
