@@ -4,11 +4,13 @@ document.addEventListener("DOMContentLoaded", function () {
   fetchData()
     .then((data) => {
       data.forEach((word) => insert(trie, word));
-      document.querySelector("#searchText").addEventListener("keyup", (e) => {
-        const searchTerm = e.target.value.toUpperCase();
-        const results = autocomplete(trie, searchTerm);
-        updateKeywordList(results);
-      });
+      document
+        .querySelector("#searchTextTrie")
+        .addEventListener("keyup", (e) => {
+          const searchTerm = e.target.value.toUpperCase();
+          const results = autocomplete(trie, searchTerm);
+          updateKeywordList(results);
+        });
     })
     .catch((error) => console.error("Error fetching data:", error));
 });
@@ -17,6 +19,17 @@ const createNode = () => ({
   children: {},
   isEndOfWord: false,
 });
+
+const fetchData = async () => {
+  try {
+    const response = await axios.get("https://api.upbit.com/v1/market/all");
+    const data = response.data;
+    return data.map((item) => item.market);
+  } catch (error) {
+    console.error(error);
+    return [];
+  }
+};
 
 const insert = (root, word) => {
   let currentNode = root;
@@ -27,17 +40,6 @@ const insert = (root, word) => {
     currentNode = currentNode.children[char];
   }
   currentNode.isEndOfWord = true;
-};
-
-const search = (root, word) => {
-  let currentNode = root;
-  for (const char of word) {
-    if (!currentNode.children[char]) {
-      return false;
-    }
-    currentNode = currentNode.children[char];
-  }
-  return currentNode.isEndOfWord;
 };
 
 const autocomplete = (root, prefix) => {
@@ -73,24 +75,14 @@ const findAllWords = (node, prefix) => {
   return words;
 };
 
-const fetchData = async () => {
-  try {
-    const response = await axios.get("https://api.upbit.com/v1/market/all");
-    const data = response.data;
-    return data.map((item) => item.market);
-  } catch (error) {
-    console.error(error);
-    return [];
-  }
-};
-
-// Update the keyword list with the given results
 const updateKeywordList = (results) => {
-  const keywordList = document.querySelector("#keywordList");
-  keywordList.innerHTML = ""; // Clear existing list items
+  const keywordList = document.querySelector("#keywordListTrie");
+  keywordList.innerHTML = "";
   results.forEach((result) => {
     const li = document.createElement("li");
     li.textContent = result;
     keywordList.appendChild(li);
   });
+
+  // keywordList.style.overflowY = words.length > 10 ? "scroll" : "hidden";
 };
